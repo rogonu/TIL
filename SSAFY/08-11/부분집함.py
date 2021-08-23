@@ -6,4 +6,4 @@ for i in range(1<<4):
     for j in range(N):
         if i & (1<<j) :
             print(짬뽕[j], end=' ')
-
+    print()
