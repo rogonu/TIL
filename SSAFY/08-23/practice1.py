@@ -1,18 +1,27 @@
-isp = {'+' : 1, '*' : 2}
-icp = {'+' : 1, '*' : 2}
+import sys
+sys.stdin = open('input.txt', 'r')
+
+isp = {'(': 0, '+': 1, '*': 2}
+icp = {'+': 1, '*': 2, '(': 3}
+
 
 def step1(s):
     temp = []
     st = []
     for c in s:
-        if c in ['+', '*',]:
+        if c in ['+', '*']:
             if not st or icp[c] > isp[st[-1]]:
                 st.append(c)
-
             else:
                 while st and isp[st[-1]] >= isp[c]:
                     temp.append(st.pop())
                 st.append(c)
+        elif c == '(':
+            st.append(c)
+        elif c == ')':
+            while st[-1] != '(':
+                temp.append(st.pop())
+            st.pop()
         else:
             temp.append(c)
     while st:
@@ -26,18 +35,21 @@ def step1(s):
     #
     # return temp
 
+
 def step2(temp):
     st = []
     for i in temp:
-        if i =='+':
-            st.append(int(st.pop())+int(st.pop()))
+        if i == '+':
+            st.append(int(st.pop()) + int(st.pop()))
         elif i == '*':
-            st.append(int(st.pop())*int(st.pop()))
+            st.append(int(st.pop()) * int(st.pop()))
         else:
             st.append(i)
     return st.pop()
+
+
 TC = 10
-for tc in range(1, TC+1):
+for tc in range(1, TC + 1):
     N = int(input())
     s = input()
     print('#{} {}'.format(tc, step2(step1(s))))
