@@ -1,3 +1,18 @@
+# 거리구하기
+def bfs_G(v):
+    q = []
+    visited = [0] * 8
+    q.append(v)
+    visited[v] = 1
+    while q:
+        v = q.pop(0)
+        print(v, visited)
+        for w in G[v]:
+            if not visited[w]:
+                q.append(w)
+                visited[w] = visited[v] + 1
+
+
 def bfs_G(v):
     q = []
     visited = [False] * 8
@@ -11,8 +26,9 @@ def bfs_G(v):
                 q.append(w)
                 visited[w] = True
 
+
 def bfs_adj(v):
-    q =[]
+    q = []
     visited = [False] * 8
     q.append(v)
     visited[v] = True
@@ -26,15 +42,14 @@ def bfs_adj(v):
                 visited[w] = True
 
 
-
 lst = [1, 2, 1, 3, 2, 4, 2, 5, 4, 6, 5, 6, 6, 7, 3, 7]
 G = [[] for _ in range(8)]
 
 adj = [[0] * 8 for _ in range(8)]
 
-for i in range(0, 16,2):
+for i in range(0, 16, 2):
     v1 = lst[i]
-    v2 = lst[i+1]
+    v2 = lst[i + 1]
     G[v1].append(v2)
     G[v2].append(v1)
 
