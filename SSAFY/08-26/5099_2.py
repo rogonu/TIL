@@ -2,6 +2,8 @@ import sys
 
 sys.stdin = open('input.txt', 'r')
 
+#교수님이 풀어주신거
+
 TC = int(input())
 for tc in range(1, TC + 1):
     N, M = map(int, input().split())

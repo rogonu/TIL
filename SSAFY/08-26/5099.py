@@ -1,7 +1,8 @@
 import sys
 
 sys.stdin = open('input.txt', 'r')
-
+# 교수님 풀어볼려고 했는데 도저히 못풀겠습니다...
+# webex 시간때 질문하겠습니다
 TC = int(input())
 for tc in range(1, TC+1):
     N, M = map(int, input().split())
