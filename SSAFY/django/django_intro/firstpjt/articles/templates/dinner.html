@@ -1,0 +1,22 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1> 오늘 저녁은 {{pick}}!</h1>
+  <p> {{pick}}은 {{pick|length}} 글자</p>
+  <p> {{ foods|join:', ' }}</p>
+  
+  <p>메뉴판</p>
+  <ul>
+    {% for food in foods %}
+      <li>{{food}}</li>
+    {% endfor %}
+  </ul>
+  {#이건 주석 입니다 시발것 존나 어렵습니다 어떻게 해야합니까#}
+  {% comment  %}
+  아 시발 진짜 존나 어렵다
+  어떻게 해야되냐 진자 개어렵다 안써봐서 그런건가
+  {% endcomment %}
+  
+  <a href='/index/'> 뒤로</a>
+{% endblock  %}
