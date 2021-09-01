@@ -34,3 +34,16 @@ def catch(request):
         'message' : message,
     }
     return render(request, 'catch.html', context)
+
+def hello(request, name):
+    context = {
+        'name' : name,
+    }
+    return render(request, 'hello.html', context)
+
+def dtl_practice(request):
+    message = request.GET.get('message')
+    context = {
+        'message' : message,
+    }
+    return render(request, 'dtl_practice.html', context)
