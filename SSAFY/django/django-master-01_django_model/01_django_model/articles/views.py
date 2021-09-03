@@ -52,4 +52,8 @@ def edit(request, pk):
     return render(request, 'articles/edit.html', context)
 
 def update(request, pk):
-    pass
+    article =Article.objects.get(pk=pk)
+    article.title = request.POST.get('title')
+    article.content = request.POST.get('content')
+    article.save()
+    return redirect('articles:detail', article.pk)
