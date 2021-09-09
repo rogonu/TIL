@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>DETAIL</h1>
+  <hr>
+  <h2>{{ article.pk }}번째 글</h2>
+  <p>제목 : {{ article.title }}</p>
+  <p>내용 : {{article.content }}</p>
+  <p>생성시간: {{ article.created_at }}</p>
+  <p>수정시간 : {{ article.updated_at }}</p>
+  <hr>
+  <form action="{% url 'articles:delete' article.pk %}" method='POST'>
+    {% csrf_token %}
+    <button>DELETE</button>  
+  </form>
+  <a href="{% url 'articles:update' article.pk%}" >
+    <button> UPDATE</button>
+  </a><br>
+  <a href="{% url 'articles:index' %}">[BACK]</a>
+{% endblock content %}
