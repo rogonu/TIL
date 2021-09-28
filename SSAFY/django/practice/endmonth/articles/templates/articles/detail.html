@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{ review.movie_title }}</h1>
+<h2>{{ review.title }}</h2>
+<h2>{{ review.content }}</h2>
+<h2>{{review.rank }}</h2>
+<div>
+<a href="{% url 'articles:index' %}">
+  <button>뒤로</button>
+</a>
+</div>
+<a href="{% url 'articles:update' review.pk %}">
+  <button>수정</button>
+</a>
+
+{% endblock content %}
