@@ -1,5 +1,5 @@
-def dijk():
-    s=0
+def dijk(s):
+
     D[s][0] = 0
     # s = 0
     # U.append(s)
@@ -32,7 +32,7 @@ for i in range(E):
 print(G)
 D = [[10000000, 0] for _ in range(N+1)]  #0: key, 1:p1
 U = []
-dijk()
+dijk(0)
 print(D)
 '''
 5 11
